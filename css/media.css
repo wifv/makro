@@ -1,0 +1,16 @@
+@media (max-width: 1024px) {
+    .nav-right {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
+}
+@media (max-width: 767px) {
+    .logo {
+        max-width: 160px;
+    }
+    .menu {
+        max-width: 70px;
+    }
+}
