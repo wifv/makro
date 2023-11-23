@@ -138,6 +138,10 @@ ul {
     grid-column: span 2 / span 2;
 }
 
+#big-block .top {
+    flex-direction: row;
+}
+
 .block {
     width: 100%;
     border-radius: 40px;
@@ -152,12 +156,14 @@ ul {
 
 .top {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .pricing {
     width: fit-content;
     transform: skew(0, -10deg);
+    position: absolute;
 }
 
 .pricing div {

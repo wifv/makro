@@ -1,25 +1,26 @@
-const catalog = document.getElementById("catalog");
-const catalogArray = document.getElementsByClassName("catalog-item");
-const catalogItem = `<div class="catalog-item">catalog item</div>`
 const block = `
 <div class="block">
-<div class="top">
-<div class="left-side">
-<p class="upper-text">negr</p>
-<p class="lower-text">negr</p>
-</div>
-<img src="./images/favicon.ico" alt="no image">
-</div>
-<div class="pricing">
-<div class="percent">-10%</div>
-<div class="yellow">10000 sum</div>
-<div class="white">
-<div id="old-price">1000</div>
-</div>
-</div>
+    <div class="top">
+        <div class="left-side">
+            <p class="upper-text">negr</p>
+            <p class="lower-text">negr</p>
+        </div>
+        <img src="./images/favicon.ico" alt="no image">
+    </div>
+    <br>
+    <div class="pricing">
+        <div class="percent">-10%</div>
+        <div class="yellow">10000 sum</div>
+        <div class="white">
+            <div id="old-price">1000</div>
+        </div>
+    </div>
 </div>
 `
 const blocks = document.getElementById("blocks");
+const catalog = document.getElementById("catalog");
+const catalogArray = document.getElementsByClassName("catalog-item");
+const catalogItem = `<div class="catalog-item">catalog item</div>`
 
 fetch("https://api.makromarket.uz/api/category-list/")
 .then(response => {
@@ -67,7 +68,7 @@ fetch("https://api.makromarket.uz/api/product-list/?limit=20")
         blocks.innerHTML += block;
         blocks.children[i].firstElementChild.firstElementChild.firstElementChild.innerText = data[i].title
         blocks.children[i].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i].endDate}`
-        
+        blocks.children[i].firstElementChild.lastElementChild.src = data[i].photo_medium
     }
     blocks.firstElementChild.id = "big-block"
 })
