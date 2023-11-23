@@ -19,6 +19,7 @@ ul {
 .header {
     position: sticky;
     top: 10px;
+    z-index: 100 !important;
 }
 
 .container-main {
@@ -130,7 +131,7 @@ ul {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     grid-template-columns: repeat(auto-fit ,minmax(300px, 1fr));
-    gap: 15px;
+    gap: 25px;
 }
 
 #big-block {
@@ -166,8 +167,8 @@ ul {
 
 .bottom {
     display: flex;
-    justify-content: space-between;
     align-items: self-end;
+    
 
     max-width: fit-content;
     width: 100%;
@@ -175,7 +176,7 @@ ul {
 
 .pricing {
     width: fit-content;
-    transform: skew(0, -10deg) translateY(20px);
+    transform: skew(0, -10deg) translateY(20px) translateX(-30px);
     position: relative;
 }
 
