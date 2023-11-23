@@ -5,10 +5,30 @@ const block = `
             <p class="upper-text">negr</p>
             <p class="lower-text">negr</p>
         </div>
+        <div class="bottom">
+            <img src="./images/favicon.ico" alt="no image" class="images">
+            <div class="pricing">
+                <div class="percent">-10%</div>
+                <div class="yellow">10000 sum</div>
+                <div class="white">
+                    <div class="old-price">1000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`
+const bigBlock = `
+<div class="block" id="big-block">
+    <div class="top">
+        <div class="left-side">
+            <p class="upper-text">negr</p>
+            <p class="lower-text">negr</p>
+        </div>
         <img src="./images/favicon.ico" alt="no image">
     </div>
     <br>
-    <div class="pricing">
+    <div class="pricing" id="pricing-big">
         <div class="percent">-10%</div>
         <div class="yellow">10000 sum</div>
         <div class="white">
@@ -64,11 +84,16 @@ fetch("https://api.makromarket.uz/api/product-list/?limit=20")
 })
 .then(data => {
     console.log(data)
-    for(let i = 0; i < 7; i++) {
+    blocks.innerHTML += bigBlock;
+    blocks.children[0].children[0].children[0].children[0].innerText = data[0].title
+    blocks.children[0].children[0].children[0].children[1].innerText = `актуально до ${data[0].endDate}`
+    blocks.children[0].children[0].lastElementChild.src = data[0].photo_medium
+    // blocks.children[0].children[0].children[1].innerText = `актуально до ${data[i].endDate}`
+    for(let i = 0; i < 6; i++) {
         blocks.innerHTML += block;
-        blocks.children[i].firstElementChild.firstElementChild.firstElementChild.innerText = data[i].title
-        blocks.children[i].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i].endDate}`
-        blocks.children[i].firstElementChild.lastElementChild.src = data[i].photo_medium
+        blocks.children[i+1].firstElementChild.firstElementChild.firstElementChild.innerText = data[i+1].title
+        blocks.children[i+1].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i+1].endDate}`
+        blocks.children[i+1].children[0].children[1].children[0].src = data[i+1].photo_medium
+
     }
-    blocks.firstElementChild.id = "big-block"
 })

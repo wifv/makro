@@ -141,6 +141,10 @@ ul {
 #big-block .top {
     flex-direction: row;
 }
+#pricing-big {
+    position: absolute;
+    transform: translateY(-115px) skew(0, -10deg);
+}
 
 .block {
     width: 100%;
@@ -160,10 +164,19 @@ ul {
     justify-content: space-between;
 }
 
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: self-end;
+
+    max-width: fit-content;
+    width: 100%;
+}
+
 .pricing {
     width: fit-content;
-    transform: skew(0, -10deg);
-    position: absolute;
+    transform: skew(0, -10deg) translateY(20px);
+    position: relative;
 }
 
 .pricing div {
@@ -205,6 +218,11 @@ ul {
     z-index: 1 !important;
 }
 
-#old-price {
+.old-price {
     transform: skew(0, -10deg);
+}
+
+.images {
+    max-width: 200px;
+    width: 100%;
 }
