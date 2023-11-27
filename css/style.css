@@ -136,6 +136,7 @@ ul {
 
 #big-block {
     background: linear-gradient(85deg, #82DC5A 8%, #48A842);
+    color: white;
     grid-column: span 2 / span 2;
 }
 
@@ -145,6 +146,7 @@ ul {
 #pricing-big {
     position: absolute;
     transform: translateY(-115px) skew(0, -10deg);
+    color: black;
 }
 
 .block {
@@ -157,6 +159,7 @@ ul {
 
 .block:hover {
     background: linear-gradient(85deg, #82DC5A 8%, #48A842);
+    color: white;
 }
 
 .top {
@@ -178,6 +181,7 @@ ul {
     width: fit-content;
     transform: skew(0, -10deg) translateY(20px) translateX(-30px);
     position: relative;
+    color: black;
 }
 
 .pricing div {
