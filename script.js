@@ -42,6 +42,9 @@ const catalog = document.getElementById("catalog");
 const catalogArray = document.getElementsByClassName("catalog-item");
 const catalogItem = `<div class="catalog-item">catalog item</div>`
 
+const pageItem = `<li class="page active">1</li>`;
+
+
 fetch("https://api.makromarket.uz/api/category-list/")
 .then(response => {
     if(!response.ok) {
@@ -75,7 +78,7 @@ fetch("https://api.makromarket.uz/api/category-list/")
 
 let id = "big-block";
 
-async function catalogFetch(parameter, until) {
+async function catalogFetch(parameter) {
     fetch(`https://api.makromarket.uz/api/${parameter}`)
     .then(response => {
         if(!response.ok) {
@@ -86,21 +89,29 @@ async function catalogFetch(parameter, until) {
     .then(data => {
         console.log(data)
         blocks.innerHTML += bigBlock;
-        blocks.children[0].children[0].children[0].children[0].innerText = data[until-1].title
-        blocks.children[0].children[0].children[0].children[1].innerText = `актуально до ${data[until-1].endDate}`
-        blocks.children[0].children[0].lastElementChild.src = data[until-1].photo_medium
+        blocks.children[0].children[0].children[0].children[0].innerText = data[0].title
+        blocks.children[0].children[0].children[0].children[1].innerText = `актуально до ${data[0].endDate}`
+        blocks.children[0].children[0].lastElementChild.src = data[0].photo_medium
         // blocks.children[0].children[0].children[1].innerText = `актуально до ${data[i].endDate}`
         for(let i = 0; i < 18; i++) {
             if(i > data.length) {
                 break;
             }
             blocks.innerHTML += block;
-            blocks.children[i+1].firstElementChild.firstElementChild.firstElementChild.innerText = data[i+until].title
-            blocks.children[i+1].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i+until].endDate}`
-            blocks.children[i+1].children[0].children[1].children[0].src = data[i+until].photo_medium
+            blocks.children[i+1].firstElementChild.firstElementChild.firstElementChild.innerText = data[i+1].title
+            blocks.children[i+1].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i+1].endDate}`
+            blocks.children[i+1].children[0].children[1].children[0].src = data[i+1].photo_medium
         }
     })
 }
 
-catalogFetch("product-list/?limit=20", 200);
+catalogFetch("product-list/?limit=20");
 
+document.getElementById('ne').onclick = () => {
+    document.getElementById('navbar').classList.add('down');
+    document.getElementById('navbar').classList.remove('up');
+}
+document.getElementById('ne2').onclick = () => {
+    document.getElementById('navbar').classList.remove('down');
+    document.getElementById('navbar').classList.add('up');
+}

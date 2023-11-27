@@ -6,13 +6,15 @@
     <title>Document</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
+    <link href="https://fonts.cdnfonts.com/css/geometria" rel="stylesheet">
+                
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/media.css">
 </head>
 <body>
     <div class="container-main">
         <header class="header">
-            <nav class="nav">
+            <nav class="nav" id="navbar">
                 <img src="./images/logo.svg" alt="logo" class="logo">
                 <ul class="nav-right">
                     <li class="nav-right-item nav-item">Новости</li>
@@ -37,23 +39,7 @@
             <div class="catalog" id="catalog">
                 <!-- parse from api -->
 
-                <!-- <div class="block">
-                    <div class="top">
-                        <div class="left-side">
-                            <p class="upper-text">negr</p>
-                            <p class="lower-text">negr</p>
-                        </div>
-                        <img src="./images/favicon.ico" alt="no image">
-                    </div>
-                    <br>
-                    <div class="pricing">
-                        <div class="percent">-10%</div>
-                        <div class="yellow">10000 sum</div>
-                        <div class="white">
-                            <div id="old-price">1000</div>
-                        </div>
-                    </div>
-                </div> -->
+
             </div>
             
             <br>
@@ -61,6 +47,16 @@
             
             <div class="block-container" id="blocks">
             </div>
+
+            <ul class="pages">
+                <li class="page-move" id="page-left"><</li>
+                <ul class="pages-in" id="pages-in">
+                </ul>
+                <li class="page-move" id="page-right">></li>
+            </ul>
+
+            <button id="ne"></button>
+            <button id="ne2"></button>
         </main>
     </div>
 

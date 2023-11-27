@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial;
+    font-family: 'Geometria', sans-serif;
 }
 
 a {
@@ -157,9 +157,19 @@ ul {
     padding: 20px 40px;
 }
 
+.block p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .block:hover {
     background: linear-gradient(85deg, #82DC5A 8%, #48A842);
     color: white;
+}
+
+.lower-text {
+    font-size: 12px !important;
+    font-weight: normal !important;
 }
 
 .top {
@@ -230,4 +240,57 @@ ul {
 .images {
     max-width: 200px;
     width: 100%;
+}
+
+.pages {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.page-move,
+.page {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
+.down {
+    animation: down 1s ease-out 1;
+}
+
+.up {
+    animation: up 1s ease-out 1;
+}
+
+@keyframes down {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 100px;
+    }
+
+}
+
+@keyframes up {
+    0% {
+        height: 100px;
+    }
+    100% {
+        height: 0px;
+    }
+
+}
+
+#ne2,
+#ne {
+    padding: 20px;
+    color: black;
 }
