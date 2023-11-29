@@ -10,13 +10,15 @@
                 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/media.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container-main">
         <header class="header">
             <nav class="nav" id="navbar">
                 <img src="./images/logo.svg" alt="logo" class="logo">
-                <ul class="nav-right">
+                <ul class="nav-right" id="nav-right">
                     <li class="nav-right-item nav-item">Новости</li>
                     <li class="nav-right-item nav-item">Акции</li>
                     <li class="nav-right-item nav-item">Каталог</li>
@@ -24,7 +26,7 @@
                     <li class="nav-right-item nav-item">Контакты</li>
                     <li class="nav-right-item nav-item">Работа в Makro</li>
                 </ul>
-                <img src="./images/burger-menu-svgrepo-com.svg" alt="menu" class="menu">
+                <img src="./images/burger-menu-svgrepo-com.svg" alt="menu" class="menu" id="menu">
             </nav>
         </header>
 
@@ -60,7 +62,26 @@
         </main>
     </div>
 
+
     <script src="./script.js"></script>
     <script src="./active.js"></script>
+    <script>
+        const menu = document.getElementById('menu');
+        const navRight = document.getElementById("nav-right");
+        const nav = document.getElementById("nav-right");
+        if (window.innerWidth < 1024) {
+            nav.style.display = 'none'
+        }
+        menu.addEventListener('click', () => {
+            navRight.classList.add('flexing')
+            console.log(navRight.style.display)
+            if(navRight.style.display == "none") {
+                $('#nav-right').slideDown(500);
+                navRight.style.display = "flex"
+            } else {
+                $('#nav-right').slideUp(500);
+            }
+        })
+    </script>
 </body>
 </html>

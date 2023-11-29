@@ -78,8 +78,8 @@ fetch("https://api.makromarket.uz/api/category-list/")
 
 let id = "big-block";
 
-async function catalogFetch(parameter) {
-    fetch(`https://api.makromarket.uz/api/${parameter}`)
+async function catalogFetch(parameter, offset) {
+    fetch(`https://api.makromarket.uz/api/${parameter}?limit=29&offset=${offset}`)
     .then(response => {
         if(!response.ok) {
             throw new Error("not ok");
@@ -87,6 +87,7 @@ async function catalogFetch(parameter) {
         return response.json();
     })
     .then(data => {
+        blocks.innerHTML = ""
         console.log(data)
         blocks.innerHTML += bigBlock;
         blocks.children[0].children[0].children[0].children[0].innerText = data[0].title
@@ -105,13 +106,4 @@ async function catalogFetch(parameter) {
     })
 }
 
-catalogFetch("product-list/?limit=20");
-
-document.getElementById('ne').onclick = () => {
-    document.getElementById('navbar').classList.add('down');
-    document.getElementById('navbar').classList.remove('up');
-}
-document.getElementById('ne2').onclick = () => {
-    document.getElementById('navbar').classList.remove('down');
-    document.getElementById('navbar').classList.add('up');
-}
+catalogFetch("product-list/", 90);
