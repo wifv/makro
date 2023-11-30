@@ -41,7 +41,6 @@ const blocks = document.getElementById("blocks");
 const catalog = document.getElementById("catalog");
 const catalogArray = document.getElementsByClassName("catalog-item");
 const catalogItem = `<div class="catalog-item">catalog item</div>`
-
 const pageItem = `<li class="page active">1</li>`;
 
 
@@ -76,8 +75,6 @@ fetch("https://api.makromarket.uz/api/category-list/")
     }
 })
 
-let id = "big-block";
-
 async function catalogFetch(parameter, offset) {
     fetch(`https://api.makromarket.uz/api/${parameter}?limit=29&offset=${offset}`)
     .then(response => {
@@ -106,4 +103,6 @@ async function catalogFetch(parameter, offset) {
     })
 }
 
-catalogFetch("product-list/", 90);
+
+
+catalogFetch("product-list/", 10);

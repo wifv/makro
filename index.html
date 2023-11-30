@@ -26,7 +26,9 @@
                     <li class="nav-right-item nav-item">Контакты</li>
                     <li class="nav-right-item nav-item">Работа в Makro</li>
                 </ul>
-                <div class="cover" id="cover"></div>
+                <div class="cover" id="cover">
+                </div>
+                <div id="back">x</div>
                 <img src="./images/burger-menu-svgrepo-com.svg" alt="menu" class="menu" id="menu">
             </nav>
         </header>
@@ -70,6 +72,7 @@
         const menu = document.getElementById('menu');
         const navRight = document.getElementById("nav-right");
         const cover = document.getElementById("cover");
+        const back = document.getElementById('back');
         if (window.innerWidth < 1024) {
             navRight.style.display = 'none'
         }
@@ -80,11 +83,14 @@
                 $('#nav-right').slideDown(500);
                 navRight.style.display = "flex"
                 cover.style.display = "block";
-            } else {
-                $('#nav-right').slideUp(500);
-                cover.style.display = "none";
+                back.style.display = "block"
             }
         })
+        back.onclick = () => {
+            $('#nav-right').slideUp(500);
+            cover.style.display = "none";
+            back.style.display = "none"
+        }
     </script>
 </body>
 </html>
