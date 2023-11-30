@@ -268,20 +268,32 @@ ul {
 
     position: absolute;
     left: 0;
-    top: 0;
+    top: -10px;
     z-index: 99;
     display: flex;
     flex-direction: column;
     width: 50%;
     gap: 14px;
-    padding: 10px 0 20px 0;
-    scale: 1.01;
-    background-color: #FAFAFA;
     width: 100%;
+    backdrop-filter: none;
+    background-color: white;
 }
 
 .flexing li {
     max-width: 100%;
     width: 100%;
-    padding: 35px 30px;
+    justify-content: flex-start;
+    background-color: #FAFAFA;
+    border-radius: 20px;
+}
+
+.cover {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 98;
+    background-color: white;
+    left: 0;
+    top: 0;
 }
