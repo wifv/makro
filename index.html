@@ -44,7 +44,6 @@
             <div class="catalog" id="catalog">
                 <!-- parse from api -->
 
-
             </div>
             
             <br>
@@ -62,17 +61,24 @@
 
             <button id="ne"></button>
             <button id="ne2"></button>
+
+            <div id="notification">
+                <span id="quit">x</span>
+                currently our website is in beta testing
+                so you might encounter bugs or buttons with
+                no functionality
+            </div>
         </main>
     </div>
 
 
     <script src="./js/script.js"></script>
-    <script src="./js/active.js"></script>
     <script>
         const menu = document.getElementById('menu');
         const navRight = document.getElementById("nav-right");
         const cover = document.getElementById("cover");
         const back = document.getElementById('back');
+        const quit = document.getElementById('quit');
         if (window.innerWidth < 1024) {
             navRight.style.display = 'none'
         }
@@ -90,6 +96,9 @@
             $('#nav-right').slideUp(500);
             cover.style.display = "none";
             back.style.display = "none"
+        }
+        quit.onclick = () => {
+            $('#notification').slideUp(500)
         }
     </script>
 </body>

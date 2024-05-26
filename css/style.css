@@ -313,3 +313,28 @@ ul {
     display: none;
     width: fit-content;
 }
+
+#notification {
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    font-size: 23px;
+    text-align: center;
+    position: fixed;
+    background-color: rgb(65, 65, 83);
+    color: white;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#quit {
+    color: white;
+    position: absolute;
+    font-size: 30px;
+    top: 10px;
+    right: 20px;
+}

@@ -103,6 +103,4 @@ async function catalogFetch(parameter, offset) {
     })
 }
 
-
-
 catalogFetch("product-list/", 10);
