@@ -70,6 +70,8 @@
             </div>
         </main>
     </div>
+    <div id="notification-cover">
+    </div>
 
 
     <script src="./js/script.js"></script>
@@ -79,6 +81,7 @@
         const cover = document.getElementById("cover");
         const back = document.getElementById('back');
         const quit = document.getElementById('quit');
+        const nCover = document.getElementById('notification-cover');
         if (window.innerWidth < 1024) {
             navRight.style.display = 'none'
         }
@@ -97,8 +100,15 @@
             cover.style.display = "none";
             back.style.display = "none"
         }
+        // console.log(document.body.style.overflow);
+        document.body.style.overflow = 'hidden';
         quit.onclick = () => {
-            $('#notification').slideUp(500)
+            $('#notification').slideUp(400)
+            nCover.style.opacity = 0
+            setTimeout(() => {
+                nCover.style.display = 'none'
+            }, 400);
+            document.body.style.overflow = '';
         }
     </script>
 </body>

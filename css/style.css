@@ -324,7 +324,7 @@ ul {
     position: fixed;
     background-color: rgb(65, 65, 83);
     color: white;
-    z-index: 100;
+    z-index: 102;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -337,4 +337,16 @@ ul {
     font-size: 30px;
     top: 10px;
     right: 20px;
+}
+
+#notification-cover {
+    background-color: rgba(0, 0, 0, 0.5);;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 101;
+    transition: all 0.4s;
+    opacity: 1;
 }
