@@ -42,7 +42,9 @@ const catalog = document.getElementById("catalog");
 const catalogArray = document.getElementsByClassName("catalog-item");
 const catalogItem = `<div class="catalog-item">catalog item</div>`
 const pageItem = `<li class="page active">1</li>`;
-
+let n = 18
+const next = document.getElementById('next')
+const previous = document.getElementById('previous')
 
 fetch("https://api.makromarket.uz/api/category-list/")
 .then(response => {
@@ -75,8 +77,8 @@ fetch("https://api.makromarket.uz/api/category-list/")
     }
 })
 
-async function catalogFetch(parameter, offset) {
-    fetch(`https://api.makromarket.uz/api/${parameter}?limit=29&offset=${offset}`)
+async function catalogFetch(parameter) {
+    fetch(`https://api.makromarket.uz/api/${parameter}`)
     .then(response => {
         if(!response.ok) {
             throw new Error("not ok");
@@ -87,20 +89,47 @@ async function catalogFetch(parameter, offset) {
         blocks.innerHTML = ""
         console.log(data)
         blocks.innerHTML += bigBlock;
-        blocks.children[0].children[0].children[0].children[0].innerText = data[0].title
-        blocks.children[0].children[0].children[0].children[1].innerText = `актуально до ${data[0].endDate}`
-        blocks.children[0].children[0].lastElementChild.src = data[0].photo_medium
+        blocks.children[0].children[0].children[0].children[0].innerText = data[n-18].title
+        blocks.children[0].children[0].children[0].children[1].innerText = `актуально до ${data[n-18].endDate}`
+        blocks.children[0].children[0].lastElementChild.src = data[n-18].photo_medium
         // blocks.children[0].children[0].children[1].innerText = `актуально до ${data[i].endDate}`
-        for(let i = 0; i < 18; i++) {
+        let a = 0
+        for(let i = n - 18; i < n; i++) {
             if(i > data.length) {
                 break;
             }
             blocks.innerHTML += block;
-            blocks.children[i+1].firstElementChild.firstElementChild.firstElementChild.innerText = data[i+1].title
-            blocks.children[i+1].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i+1].endDate}`
-            blocks.children[i+1].children[0].children[1].children[0].src = data[i+1].photo_medium
+            blocks.children[a+1].firstElementChild.firstElementChild.firstElementChild.innerText = data[i+1].title
+            blocks.children[a+1].firstElementChild.firstElementChild.children[1].innerText = `актуально до ${data[i+1].endDate}`
+            blocks.children[a+1].children[0].children[1].children[0].src = data[i+1].photo_medium
+            a++
         }
     })
 }
 
-catalogFetch("product-list/", 10);
+next.onclick = () => {
+    fetch('https://api.makromarket.uz/api/product-list/')
+    .then(response => response.json())
+    .then(data => {
+        n+=18
+        if (n < data.length) {
+            catalogFetch("product-list/")
+        } else if (n = data.length -1 ) {
+            n += 1
+        } else if (n > data.length) {
+            n = n - (n - data.length) - 1
+            catalogFetch("product-list/")
+
+        }
+        console.log(n)
+    })
+}
+previous.onclick = () => {
+    if (n > 18) {
+        n-=18
+        catalogFetch("product-list/")
+    }
+}
+
+
+catalogFetch("product-list/");

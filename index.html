@@ -53,10 +53,10 @@
             </div>
 
             <ul class="pages">
-                <li class="page-move" id="page-left"><</li>
+                <li class="page-move" id="previous"><</li>
                 <ul class="pages-in" id="pages-in">
                 </ul>
-                <li class="page-move" id="page-right">></li>
+                <li class="page-move" id="next">></li>
             </ul>
 
             <button id="ne"></button>
@@ -100,8 +100,7 @@
             cover.style.display = "none";
             back.style.display = "none"
         }
-        // console.log(document.body.style.overflow);
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
         quit.onclick = () => {
             $('#notification').slideUp(400)
             nCover.style.opacity = 0
@@ -110,6 +109,7 @@
             }, 400);
             document.body.style.overflow = '';
         }
+        
     </script>
 </body>
 </html>
