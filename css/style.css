@@ -314,7 +314,7 @@ ul {
     width: fit-content;
 }
 
-/* #notification {
+#notification {
     max-width: 500px;
     width: 100%;
     padding: 40px;
@@ -349,4 +349,4 @@ ul {
     z-index: 101;
     transition: all 0.4s;
     opacity: 1;
-} */
+}
